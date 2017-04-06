@@ -80,6 +80,19 @@ public class LoreCommand extends EasterlynCommand {
 			player.sendMessage("Meta cleared!");
 			return true;
 		}
+		if (args[0].equals("iHide")){
+			ItemMeta meta = hand.getItemMeta();
+			meta.addItemFlags(ItemFlag.HIDE_ENCHANTS, ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_POTION_EFFECTS, ItemFlag.HIDE_PLACED_ON);
+			hand.setItemMeta(meta);
+			player.sendMessage("Extras hidden!");
+		}
+		if (args[0].equals("addGlow")){
+			ItemMeta meta = hand.getItemMeta();
+			meta.addItemFlags(ItemFlag.HIDE_ENCHANTS, ItemFlag.HIDE_ATTRIBUTES);
+			hand.setMeta(meta);
+			hand.addUnsafeEnchantment(Enchantment.PROTECTION_FALL, 1);
+			player.sendMessage("Glow added!");
+		}
 		if (args.length < 2) {
 			return false;
 		}
